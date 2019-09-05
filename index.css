@@ -1,0 +1,46 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  padding: 10px 20px;
+}
+
+.quizLogo {
+  margin-right: auto;
+}
+
+.questionScore {
+  float: left;
+  font-size: 20px;
+}
+
+ul {
+  list-style: none;
+}
+
+main {
+  display: block;
+  margin-top: 110px;
+  border: solid 1px black;
+  background-color: darkgray;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 35px;
+}
+
+.quizStart {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.startButton {
+  font-size: 20px;
+}
