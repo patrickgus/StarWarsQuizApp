@@ -8,39 +8,51 @@ body {
 
 header {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   padding: 10px 20px;
 }
 
 .quizLogo {
-  margin-right: auto;
+  text-align: center;
+  margin: 20px;
+}
+
+h1 {
+  font-size: 35px;
+  font-weight: bold;
 }
 
 .questionScore {
-  float: left;
+  text-align: center;
   font-size: 20px;
 }
 
 ul {
   list-style: none;
+  padding: 0;
 }
 
 main {
   display: block;
-  margin-top: 110px;
+  margin: 15px;
   border: solid 1px black;
-  background-color: darkgray;
-  width: 500px;
-  margin-left: auto;
-  margin-right: auto;
+  border-radius: 10px;
+  background-color: lightgray;
   padding: 35px;
 }
 
 .quizStart {
   text-align: center;
-  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 25px;
+  font-weight: bold;
 }
 
 .startButton {
   font-size: 20px;
+  margin: 40px;
+  padding: 10px;
+  background-color: darkgray;
 }
