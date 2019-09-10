@@ -56,3 +56,32 @@ h2 {
   padding: 10px;
   background-color: darkgray;
 }
+
+.questionAnswerForm {
+  text-align: center;
+}
+
+.questionTitle {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.answerOption {
+  padding: 5px;
+  font-size: 20px;
+}
+
+.submitButton {
+  font-size: 20px;
+  margin: 40px;
+  padding: 10px;
+  background-color: darkgray;
+  margin-left: auto;
+  margin-right: auto;
+}
