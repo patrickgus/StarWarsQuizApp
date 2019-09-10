@@ -2,29 +2,21 @@ let questionNumber = 0;
 let score = 0;
 
 function renderQuestion() {
+  const answers = STORE[questionNumber].answers.map(function (answer) {
+	  return `<label class="answerOption">
+              <input type="radio" name="answer" value="${answer}" required>
+              <span>${answer}</span>
+            </label>`;
+  }).join(''); 
+
   return `
     <h2 class="questionTitle">${STORE[questionNumber].question}</h2>
-        <form>
-          <fieldset>
-            <label class="answerOption">
-              <input type="radio" name="answer" value="${STORE[questionNumber].answers[0]}" required>
-              <span>${STORE[questionNumber].answers[0]}</span>
-            </label>
-            <label class="answerOption">
-              <input type="radio" name="answer" value="${STORE[questionNumber].answers[1]}" required>
-              <span>${STORE[questionNumber].answers[1]}</span>
-            </label>
-            <label class="answerOption">
-              <input type="radio" name="answer" value="${STORE[questionNumber].answers[2]}" required>
-              <span>${STORE[questionNumber].answers[2]}</span>
-            </label>
-            <label class="answerOption">
-              <input type="radio" name="answer" value="${STORE[questionNumber].answers[3]}" required>
-              <span>${STORE[questionNumber].answers[3]}</span>
-            </label>
-            <button type="button" class="submitButton">Submit</button>
-          </fieldset>
-        </form>`;
+    <form>
+      <fieldset>
+        ${answers}
+        <button type="button" class="submitButton">Submit</button>
+      </fieldset>
+    </form>`;
 }
 
 function increaseQuestionNumber() {
@@ -35,7 +27,6 @@ function handleStartButton() {
   // Hide .quizStart class
   // replace with next question
   // increase questionNumber
-
   $('.quizStart').on('click', '.startButton', function(event) {
     $('.quizStart').hide();
     
@@ -80,7 +71,7 @@ function renderFeedback() {
 function handleSubmitButton() {
   // hide question
   // display feedback correct or incorrect
-  // change score if feedback is correct
+  // increase score if feedback is correct
 
   $('.questionAnswerForm').on('click', '.submitButton', function(event) {
     event.preventDefault();
