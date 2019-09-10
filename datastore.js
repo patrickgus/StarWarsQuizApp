@@ -3,11 +3,11 @@ const STORE = [
     question: 'What is the Millenium Falcon?',
     answers: [
       'The origin of the Force',
-      'Han Solo\’s spaceship',
-      'Boba Fett\’s spaceship',
-      'Darth Vader\’s lightsaber'
+      'Han Solo\'s spaceship',
+      'Boba Fett\'s spaceship',
+      'Darth Vader\'s lightsaber'
       ],
-    correctAnswer: 'Han Solo\’s spaceship'
+    correctAnswer: 'Han Solo\'s spaceship'
   },
   {
     question: 'Finish this line: “Do. Or do not. _______.”',
@@ -20,7 +20,7 @@ const STORE = [
     correctAnswer: 'There is no try'
   },
   {
-    question: 'What is Darth Vader\’s real name?',
+    question: 'What is Darth Vader\'s real name?',
     answers: [
       'Ben Skywalker',
       'Wade Wilson',
@@ -30,7 +30,7 @@ const STORE = [
     correctAnswer: 'Anakin Skywalker'
   },
   {
-    question: 'Who are Kylo Ren\’s parents?',
+    question: 'Who are Kylo Ren\'s parents?',
     answers: [
       'Leia Organa and Han Solo',
       'Anakin Skywalker and Padmé Amidala',
@@ -43,11 +43,11 @@ const STORE = [
     question: 'How did Boba Fett die?',
     answers: [
       'Mace Windu cut off his head',
-      'He fell into the Sarlacc\’s pit',
+      'He fell into the Sarlacc\'s pit',
       'Han Solo shot him first',
       'Darth Vader Force choked him'
       ],
-    correctAnswer: 'He fell into the Sarlacc\’s pit'
+    correctAnswer: 'He fell into the Sarlacc\'s pit'
   },
   {
     question: 'What was the actual purpose of the clone army in episode 3?',
