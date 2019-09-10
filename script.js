@@ -1,20 +1,70 @@
-let questionNumber = 0
-let score = 0
+let questionNumber = 0;
+let score = 0;
+
+function renderQuestion() {
+  return `
+    <h2 class="questionTitle">${STORE[questionNumber].question}</h2>
+        <form>
+          <fieldset>
+            <label class="answerOption">
+              <input type="radio" name="answer" value="${STORE[questionNumber].answers[0]}" required>
+              <span>${STORE[questionNumber].answers[0]}</span>
+            </label>
+            <label class="answerOption">
+              <input type="radio" name="answer" value="${STORE[questionNumber].answers[1]}" required>
+              <span>${STORE[questionNumber].answers[1]}</span>
+            </label>
+            <label class="answerOption">
+              <input type="radio" name="answer" value="${STORE[questionNumber].answers[2]}" required>
+              <span>${STORE[questionNumber].answers[2]}</span>
+            </label>
+            <label class="answerOption">
+              <input type="radio" name="answer" value="${STORE[questionNumber].answers[3]}" required>
+              <span>${STORE[questionNumber].answers[3]}</span>
+            </label>
+            <button type="button" class="submitButton">Submit</button>
+          </fieldset>
+        </form>`;
+}
+
+function increaseQuestionNumber() {
+  return questionNumber++;
+}
 
 function handleStartButton() {
-  console.log('`handleStartButton` is running');
+  // Hide .quizStart class
+  // replace with next question
+  // increase questionNumber
+  console.log('`handleStartButton` ran');
+  $('.quizStart').on('click', '.startButton', function(event) {
+    $('.quizStart').hide();
+    
+    $('.questionAnswerForm').html(renderQuestion());
+
+    increaseQuestionNumber();
+  });
 }
 
 function handleSubmitButton() {
-  console.log('`handleSubmitButton` is running');
+  // hide question
+  // display feedback correct or incorrect
+  // change score if feedback is correct
+  console.log('`handleSubmitButton` ran');
 }
 
 function handleNextButton() {
-  console.log('`handleNextButton` is running');
+  // hide feedback
+  // display next question (unless last question)
+  // increase question number
+  // after last question dispay results
+  console.log('`handleNextButton` ran');
 }
 
 function handleRestartButton() {
-  console.log('`handleRestartButton` is running');
+  // hide results
+  // display start screen
+  // change score and question numbers to 0
+  console.log('`handleRestartButton` ran');
 }
 
 function handleButtons() {
@@ -22,7 +72,6 @@ function handleButtons() {
   handleSubmitButton();
   handleNextButton();
   handleRestartButton();
-  console.log('`handleButtons` is running');
 }
 
 $(handleButtons);
