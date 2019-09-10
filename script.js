@@ -28,7 +28,7 @@ function renderQuestion() {
 }
 
 function increaseQuestionNumber() {
-  return questionNumber++;
+  $('.questionNumber').text(questionNumber + 1);
 }
 
 function handleStartButton() {
