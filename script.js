@@ -14,30 +14,34 @@ function renderQuestion() {
     <form>
       <fieldset>
         ${answers}
-        <button type="button" class="submitButton">Submit</button>
+        <button type="submit" class="submitButton">Submit</button>
       </fieldset>
     </form>`;
 }
 
 function increaseQuestionNumber() {
-  $('.questionNumber').text(questionNumber + 1);
+    questionNumber ++;
+
+    $('.questionNumber').text(questionNumber + 1);
 }
 
 function handleStartButton() {
   // Hide .quizStart class
   // replace with next question
-  // increase questionNumber
+  // set questionNumber to 1
   $('.quizStart').on('click', '.startButton', function(event) {
     $('.quizStart').hide();
     
     $('.questionAnswerForm').html(renderQuestion());
 
-    increaseQuestionNumber();
+    $('.questionNumber').text(1);
   });
 }
 
 function increaseScore() {
+
   score ++;
+  
   $('.score').text(score);
 }
 
@@ -49,7 +53,7 @@ function renderCorrectAnswer() {
 }
 
 function renderIncorrectAnswer() {
-  let correctAnswer = `${STORE[questionNumber].correctAnswer}`;
+  const correctAnswer = `${STORE[questionNumber].correctAnswer}`;
 
   $('.questionAnswerForm').html(`<h2>Incorrect!</h2>
           <p>The correct answer is <span>"${correctAnswer}"</span></p>
@@ -57,9 +61,9 @@ function renderIncorrectAnswer() {
 } 
 
 function renderFeedback() {
-  let selected = $('input:checked');
-  let answer = selected.val();
-  let correctAnswer = `${STORE[questionNumber].correctAnswer}`;
+  const selected = $('input:checked');
+  const answer = selected.val();
+  const correctAnswer = `${STORE[questionNumber].correctAnswer}`;
 
   if (answer === correctAnswer) {
     renderCorrectAnswer();
@@ -72,7 +76,6 @@ function handleSubmitButton() {
   // hide question
   // display feedback correct or incorrect
   // increase score if feedback is correct
-
   $('.questionAnswerForm').on('click', '.submitButton', function(event) {
     event.preventDefault();
 
@@ -80,11 +83,28 @@ function handleSubmitButton() {
   });
 }
 
+function renderResults() {
+  return `<h2>Results</h2>
+      <p>Score: ${score}/10</p>
+    <button type="button" class="restartButton">Restart</button>`;
+}
+
 function handleNextButton() {
   // hide feedback
   // display next question (unless last question)
   // increase question number
   // after last question dispay results
+  $('.questionAnswerForm').on('click', '.nextButton', function(event) {
+
+    if (questionNumber < STORE.length-1) {
+      increaseQuestionNumber();
+
+      $('.questionAnswerForm').html(renderQuestion());
+
+    } else {
+      $('.questionAnswerForm').html(renderResults());
+    };
+  });
 }
 
 function handleRestartButton() {

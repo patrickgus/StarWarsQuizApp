@@ -97,3 +97,10 @@ p {
   padding: 10px;
   background-color: darkgray;
 }
+
+.restartButton {
+  font-size: 20px;
+  margin: 40px;
+  padding: 10px;
+  background-color: darkgray;
+}
