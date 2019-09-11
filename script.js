@@ -3,10 +3,11 @@ let score = 0;
 
 function renderQuestion() {
   const answers = STORE[questionNumber].answers.map(function (answer) {
-	  return `<label class="answerOption">
-              <input type="radio" name="answer" value="${answer}" required>
-              <span>${answer}</span>
-            </label>`;
+	  return `
+      <label class="answerOption">
+        <input type="radio" name="answer" value="${answer}" required>
+        <span>${answer}</span>
+      </label>`;
   }).join(''); 
 
   return `
@@ -46,7 +47,8 @@ function increaseScore() {
 }
 
 function renderCorrectAnswer() {
-  $('.questionAnswerForm').html(`<h2>Correct!</h2>
+  $('.questionAnswerForm').html(`
+    <h2>Correct!</h2>
     <button type="button" class="nextButton">Next</button>`);
   
   increaseScore();
@@ -55,7 +57,8 @@ function renderCorrectAnswer() {
 function renderIncorrectAnswer() {
   const correctAnswer = `${STORE[questionNumber].correctAnswer}`;
 
-  $('.questionAnswerForm').html(`<h2>Incorrect!</h2>
+  $('.questionAnswerForm').html(`
+    <h2>Incorrect!</h2>
       <p>The correct answer is <span>"${correctAnswer}"</span></p>
     <button type="button" class="nextButton">Next</button>`);
 } 
@@ -74,7 +77,7 @@ function renderFeedback() {
 
 function handleSubmitButton() {
   // hide question
-  // display feedback correct or incorrect
+  // display correct or incorrect feedback
   // increase score if feedback is correct
   $('.questionAnswerForm').on('click', '.submitButton', function(event) {
     event.preventDefault();
@@ -84,8 +87,9 @@ function handleSubmitButton() {
 }
 
 function renderResults() {
-  return `<h2>Results</h2>
-      <p>Score: ${score}/10</p>
+  return `
+    <h2>Results</h2>
+      <p>Score: ${score}/${STORE.length}</p>
     <button type="button" class="restartButton">Restart</button>`;
 }
 
@@ -102,6 +106,8 @@ function handleNextButton() {
       $('.questionAnswerForm').html(renderQuestion());
 
     } else {
+      $('.questionScore').hide();
+
       $('.questionAnswerForm').html(renderResults());
     };
   });
