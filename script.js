@@ -26,7 +26,7 @@ function increaseQuestionNumber() {
 }
 
 function handleStartButton() {
-  // Hide .quizStart class
+  // hide .quizStart class
   // replace with next question
   // set questionNumber to 1
   $('.quizStart').on('click', '.startButton', function(event) {
@@ -47,7 +47,7 @@ function increaseScore() {
 
 function renderCorrectAnswer() {
   $('.questionAnswerForm').html(`<h2>Correct!</h2>
-        <button type="button" class="nextButton">Next</button>`);
+    <button type="button" class="nextButton">Next</button>`);
   
   increaseScore();
 }
@@ -56,8 +56,8 @@ function renderIncorrectAnswer() {
   const correctAnswer = `${STORE[questionNumber].correctAnswer}`;
 
   $('.questionAnswerForm').html(`<h2>Incorrect!</h2>
-          <p>The correct answer is <span>"${correctAnswer}"</span></p>
-        <button type="button" class="nextButton">Next</button>`);
+      <p>The correct answer is <span>"${correctAnswer}"</span></p>
+    <button type="button" class="nextButton">Next</button>`);
 } 
 
 function renderFeedback() {
@@ -96,7 +96,7 @@ function handleNextButton() {
   // after last question dispay results
   $('.questionAnswerForm').on('click', '.nextButton', function(event) {
 
-    if (questionNumber < STORE.length-1) {
+    if (questionNumber < STORE.length - 1) {
       increaseQuestionNumber();
 
       $('.questionAnswerForm').html(renderQuestion());
@@ -111,6 +111,9 @@ function handleRestartButton() {
   // hide results
   // display start screen
   // change score and question numbers to 0
+  $('.questionAnswerForm').on('click', '.restartButton', function(event) {
+    location.reload();
+  });
 }
 
 function handleButtons() {
