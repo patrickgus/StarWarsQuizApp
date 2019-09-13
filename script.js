@@ -6,7 +6,7 @@ function renderQuestion() {
 	  return `
       <label class="answerOption">
         <input type="radio" name="answer" value="${answer}" required>
-        <span>${answer}</span>
+        ${answer}
       </label>`;
   }).join(''); 
 
@@ -15,8 +15,10 @@ function renderQuestion() {
     <form>
       <fieldset>
         ${answers}
-        <button type="submit" class="submitButton">Submit</button>
       </fieldset>
+      <div class="buttonContainer">
+        <button type="submit" class="submitButton">Submit</button>
+      </div>
     </form>`;
 }
 
@@ -27,9 +29,6 @@ function increaseQuestionNumber() {
 }
 
 function handleStartButton() {
-  // hide .quizStart class
-  // replace with next question
-  // set questionNumber to 1
   $('.quizStart').on('click', '.startButton', function(event) {
     $('.quizStart').hide();
     
@@ -50,8 +49,9 @@ function renderCorrectAnswer() {
   $('.questionAnswerForm').html(`
     <h2>Correct!</h2>
     <img class="icon" src="${STORE[questionNumber].icon}" alt="${STORE[questionNumber].alt}"/>
-    <button type="button" class="nextButton">Next</button>`);
-  
+    <div class="buttonContainer">
+      <button type="button" class="nextButton">Next</button>
+    </div>`);
   increaseScore();
 }
 
@@ -62,7 +62,9 @@ function renderIncorrectAnswer() {
     <h2>Incorrect!</h2>
       <p>The correct answer is <span>"${correctAnswer}"</span></p>
       <img class="icon" src="${STORE[questionNumber].icon}" alt="${STORE[questionNumber].alt}"/>
-    <button type="button" class="nextButton">Next</button>`);
+    <div class="buttonContainer">
+      <button type="button" class="nextButton">Next</button>
+    </div>`);
 } 
 
 function renderFeedback() {
@@ -78,13 +80,12 @@ function renderFeedback() {
 }
 
 function handleSubmitButton() {
-  // hide question
-  // display correct or incorrect feedback
-  // increase score if feedback is correct
-  $('.questionAnswerForm').on('click', '.submitButton', function(event) {
+  $('.questionAnswerForm').on('submit', function(event) {
     event.preventDefault();
 
-    renderFeedback();
+    if (event.target.checkValidity()) {
+      renderFeedback();
+    }
   });
 }
 
@@ -92,14 +93,12 @@ function renderResults() {
   return `
     <h2>Results</h2>
       <p>Score: ${score}/${STORE.length}</p>
-    <button type="button" class="restartButton">Restart</button>`;
+    <div class="buttonContainer">
+      <button type="button" class="restartButton">Restart</button>
+    </div>`;
 }
 
 function handleNextButton() {
-  // hide feedback
-  // display next question (unless last question)
-  // increase question number
-  // after last question dispay results
   $('.questionAnswerForm').on('click', '.nextButton', function(event) {
 
     if (questionNumber < STORE.length - 1) {
@@ -116,9 +115,6 @@ function handleNextButton() {
 }
 
 function handleRestartButton() {
-  // hide results
-  // display start screen
-  // change score and question numbers to 0
   $('.questionAnswerForm').on('click', '.restartButton', function(event) {
     location.reload();
   });
