@@ -107,8 +107,6 @@ function handleNextButton() {
       $('.questionAnswerForm').html(renderQuestion());
 
     } else {
-      $('.questionScore').hide();
-
       $('.questionAnswerForm').html(renderResults());
     };
   });
