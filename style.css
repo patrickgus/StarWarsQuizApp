@@ -19,7 +19,7 @@ header {
   padding: 10px 20px;
 }
 
-img {
+.logo {
   max-width: 200px;
 }
 
@@ -60,6 +60,7 @@ main {
 h2 {
   font-size: 25px;
   font-weight: bold;
+  padding: 10px;
 }
 
 button {
@@ -104,6 +105,12 @@ p {
   font-size: 20px;
 }
 
+.icon {
+  max-width: 150px;
+  display: block;
+  margin: auto;
+}
+
 @media screen and (min-width: 630px) {
   main {
     max-width: 600px;
@@ -121,5 +128,19 @@ p {
     margin: 0;
     padding: 20px;
     font-size: 30px;
+  }
+
+  .icon {
+    max-width: 350px;
+  }
+}
+
+@media screen and (max-width: 250px) {
+  .logo {
+    max-width: 100px;
+  }
+
+  .icon {
+    display: none;
   }
 }

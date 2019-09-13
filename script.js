@@ -49,6 +49,7 @@ function increaseScore() {
 function renderCorrectAnswer() {
   $('.questionAnswerForm').html(`
     <h2>Correct!</h2>
+    <img class="icon" src="${STORE[questionNumber].icon}" alt="${STORE[questionNumber].alt}"/>
     <button type="button" class="nextButton">Next</button>`);
   
   increaseScore();
@@ -60,6 +61,7 @@ function renderIncorrectAnswer() {
   $('.questionAnswerForm').html(`
     <h2>Incorrect!</h2>
       <p>The correct answer is <span>"${correctAnswer}"</span></p>
+      <img class="icon" src="${STORE[questionNumber].icon}" alt="${STORE[questionNumber].alt}"/>
     <button type="button" class="nextButton">Next</button>`);
 } 
 
