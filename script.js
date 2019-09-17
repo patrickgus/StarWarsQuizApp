@@ -30,8 +30,6 @@ function increaseQuestionNumber() {
 
 function handleStartButton() {
   $('.quizStart').on('click', '.startButton', function(event) {
-    console.log('handleStartButton is running');
-    
     $('.quizStart').hide();
     
     $('.questionAnswerForm').html(renderQuestion());
