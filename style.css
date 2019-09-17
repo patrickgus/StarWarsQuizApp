@@ -61,6 +61,10 @@ main {
   text-align: center;
 }
 
+.questionAnswerForm {
+  display: none;
+}
+
 h2 {
   font-size: 25px;
   font-weight: bold;
@@ -86,11 +90,14 @@ button {
 
 button:hover {
   background-color: rgb(207, 190, 0);
+  cursor: pointer;
 }
 
 .questionTitle {
   font-size: 20px;
   font-weight: bold;
+  padding: 10px;
+  line-height: 1.5em;
 }
 
 form {
@@ -108,6 +115,10 @@ fieldset {
   padding: 5px;
   font-size: 20px;
   display: flex;
+}
+
+.answerOption, input:hover {
+  cursor: pointer;
 }
 
 p {

@@ -11,9 +11,9 @@ function renderQuestion() {
   }).join(''); 
 
   return `
-    <h2 class="questionTitle">${STORE[questionNumber].question}</h2>
     <form>
       <fieldset>
+        <legend class="questionTitle">${STORE[questionNumber].question}</legend>
         ${answers}
       </fieldset>
       <div class="buttonContainer">
@@ -30,9 +30,13 @@ function increaseQuestionNumber() {
 
 function handleStartButton() {
   $('.quizStart').on('click', '.startButton', function(event) {
+    console.log('handleStartButton is running');
+    
     $('.quizStart').hide();
     
     $('.questionAnswerForm').html(renderQuestion());
+
+     $('.questionAnswerForm').show();
 
     $('.questionNumber').text(1);
   });
@@ -114,7 +118,16 @@ function handleNextButton() {
 
 function handleRestartButton() {
   $('.questionAnswerForm').on('click', '.restartButton', function(event) {
-    location.reload();
+    questionNumber = 0;
+    score = 0;
+    
+    $('.questionAnswerForm').hide();
+
+    $('.quizStart').show();
+
+    $('.questionNumber').text(questionNumber);
+
+    $('.score').text(score);
   });
 }
 
